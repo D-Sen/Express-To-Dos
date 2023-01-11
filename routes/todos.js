@@ -7,7 +7,7 @@ router.get('/', todosCtrl.index)
 router.get('/new', todosCtrl.new)
 router.get('/:id', todosCtrl.show)
 router.post('/', todosCtrl.create)
-// GET /todos/new   <-- this new route cannot not stay here!
+router.delete('/:id', todosCtrl.delete)
 
 
 module.exports = router;

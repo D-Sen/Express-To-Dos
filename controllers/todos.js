@@ -4,7 +4,8 @@ module.exports = {
     index,
     show,
     new: newTodo,
-    create
+    create,
+    delete: deleteTodo
 }
 
 function index(req, res) {
@@ -33,4 +34,9 @@ function create(req, res) {
     Todo.create(req.body);
     // Do a redirect anytime data is changed
     res.redirect('/todos');
+}
+
+function deleteTodo(req, res) {
+    Todo.deleteOne(req.params.id)
+    res.redirect('/todos')
 }
