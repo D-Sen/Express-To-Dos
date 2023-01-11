@@ -2,7 +2,8 @@ const Todo = require('../models/todo')
 
 module.exports = {
     index,
-    show
+    show,
+    new: newTodo
 }
 
 function index(req, res) {
@@ -13,10 +14,15 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    console.log(req.params)
     res.render('todos/show', {
         todo: Todo.getOne(req.params.id),
         title: 'To-Do Details'
+    })
+}
+
+function newTodo(req, res) {
+    res.render('todos/new', {
+        title: 'New Todo'
     })
 }
 
