@@ -3,7 +3,8 @@ const Todo = require('../models/todo')
 module.exports = {
     index,
     show,
-    new: newTodo
+    new: newTodo,
+    create
 }
 
 function index(req, res) {
@@ -26,3 +27,10 @@ function newTodo(req, res) {
     })
 }
 
+function create(req, res) {
+    console.log(req.body);
+    // The model is responsible for creating data
+    Todo.create(req.body);
+    // Do a redirect anytime data is changed
+    res.redirect('/todos');
+}
