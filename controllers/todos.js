@@ -5,7 +5,8 @@ module.exports = {
     show,
     new: newTodo,
     create,
-    delete: deleteTodo
+    delete: deleteTodo,
+    edit
 }
 
 function index(req, res) {
@@ -39,4 +40,11 @@ function create(req, res) {
 function deleteTodo(req, res) {
     Todo.deleteOne(req.params.id)
     res.redirect('/todos')
+}
+
+function edit(req, res) {
+    res.render('todos/edit', {
+        title: 'Edit Todo',
+        todo: Todo.getOne(req.params.id)
+    })
 }

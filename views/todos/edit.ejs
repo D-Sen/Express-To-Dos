@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<form action="" method="POST" autocomplete="off">
+    <label>Todo Task</label>
+    <input type="text" name="todo">
+    <label>Completion Status</label>
+    <input type="checkbox" name="done" <%= todo.done ? 'checked' : '' %>>
+    <button type="submit">Save Todo</button>
+</form>
+  
+
+<%- include('../partials/footer') %>
