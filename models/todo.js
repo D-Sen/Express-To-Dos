@@ -8,7 +8,8 @@ module.exports = {
     getAll,
     getOne,
     create,
-    deleteOne
+    deleteOne,
+    updateOne
 };
 
 function getAll() {
@@ -33,4 +34,15 @@ function deleteOne(id) {
     id = parseInt(id)
     const idx = todos.findIndex(todo => todo.id === id)
     todos.splice(idx, 1)
+}
+
+function updateOne(formData, id) {
+    id = parseInt(id)
+    const todo = todos.find(todo => todo.id === id)
+    todo.todo = formData.todo
+    if(formData.done) {
+        todo.done = true
+    } else {
+        todo.done = false
+    }
 }

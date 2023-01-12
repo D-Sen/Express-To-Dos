@@ -6,7 +6,8 @@ module.exports = {
     new: newTodo,
     create,
     delete: deleteTodo,
-    edit
+    edit,
+    update
 }
 
 function index(req, res) {
@@ -47,4 +48,9 @@ function edit(req, res) {
         title: 'Edit Todo',
         todo: Todo.getOne(req.params.id)
     })
+}
+
+function update(req, res) {
+    Todo.updateOne(req.body, req.params.id)
+    res.redirect(`/todos/${req.params.id}`)
 }
